@@ -1,0 +1,16 @@
+// Global styles.
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+body, html {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
