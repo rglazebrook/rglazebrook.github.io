@@ -7,6 +7,7 @@
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center;
+		background-attachment: fixed;
 		position: relative;
 		text-align: center;
 
@@ -17,7 +18,7 @@
 			bottom: 0;
 			left: 0;
 			right: 0;
-			background: rgba(0,0,0,0.5);
+			background-image: radial-gradient(circle farthest-corner at 50% 50%, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.75) 100%);
 		}
 	}
 
@@ -26,9 +27,16 @@
 		z-index: 2;
 		top: 50%;
 		left: 50%;
+		min-width: 300px;
 		padding: $gutter;
 		color: #fff;
+		background-color: rgba(0,0,0,0.2);
 		border: 3px solid #fff;
 		transform: translate(-50%, -50%);
+		opacity: 0; // This gets removed by JS.
+	}
+
+	.about-me {
+		background-color: #efefef;
 	}
 }
