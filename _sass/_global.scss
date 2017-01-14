@@ -5,12 +5,42 @@
 body, html {
 	margin: 0;
 	padding: 0;
+	line-height: 1.5;
 }
 body {
 	font-family: Helvetica, Arial, sans-serif;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 0 1em;
+}
+p {
+	margin: 0;
+	+ p {
+		margin-top: 1em;
+	}
+}
+
 .container {
 	max-width: 1200px;
 	margin: 0 auto;
+}
+
+.fullpage {
+	display: block;
+	min-height: 100vh;
+}
+
+.flex {
+	display: flex;
+}
+
+.text-left {
+	text-align: left;
+}
+.text-center {
+	text-align: center;
+}
+.text-right {
+	text-align: right;
 }
