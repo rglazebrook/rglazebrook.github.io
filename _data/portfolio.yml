@@ -1,0 +1,12 @@
+- title: The Pioneer Woman
+  url: http://thepioneerwoman.com
+  image: portfolio-tpw.jpg
+  description: I was responsible for all front end development on this custom WordPress theme for Food Network's Ree Drummond.
+- title: Rockettes
+  url: https://www.rockettes.com
+  image: portfolio-rockettes.jpg
+  description: I developed the responsive front end for this popular web property of Madison Square Garden.
+- title: CDC "Watch Me!" Module
+  url: https://www.cdc.gov/ncbddd/watchmetraining/module1.html
+  image: portfolio-watchme.jpg
+  description: I handled all the front end development for this animated, interactive learning module for the CDC.

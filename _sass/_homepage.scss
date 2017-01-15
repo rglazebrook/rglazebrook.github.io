@@ -1,5 +1,9 @@
 // Homepage-specific styles.
 .homepage {
+
+	h3 {
+		color: #005F6B;
+	}
 	
 	.bg-me {
 		background-color: #888;
@@ -36,7 +40,17 @@
 		opacity: 0; // This gets removed by JS.
 	}
 
-	.about-me {
+	.portfolio {		
+		.row {
+			padding-top: $gutter;
+		}
+		.portfolio-url {
+			word-break: break-all;
+		}
+	}
+
+	section:nth-child(2n) {
 		background-color: #efefef;
+		background-image: repeating-linear-gradient(-45deg, #fafafa, #fafafa 10px, #fff 10px, #fff 20px );
 	}
 }
