@@ -53,4 +53,11 @@
 		background-color: #efefef;
 		background-image: repeating-linear-gradient(-45deg, #fafafa, #fafafa 10px, #fff 10px, #fff 20px );
 	}
+
+	// Right align previously centered titles.
+	@include for-tablet-portrait-up {
+		.col-tabletp-4 {
+			text-align: right;
+		}
+	}
 }

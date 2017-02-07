@@ -15,4 +15,24 @@ $(document).ready(function() {
 		ease: Power2.easeOut
 	}, 0.25);
 
+	// Load the asyncronous (data-src) images.
+	$('[data-src]').each(function() {
+		$(this).attr('src', $(this).data('src') );
+	});
+
+	// Super-simple lightbox.
+	var $lightbox = $('.lightbox');
+	$('.portfolio img').on('click',function() {
+		$lightbox.html('<img src="'+$(this).attr("src")+'" alt="" />');
+		var imgIn = new TimelineMax(),
+			img = $lightbox.find('img');
+		imgIn.set($lightbox, {display: 'block', opacity: 0 });
+		imgIn.set(img, { opacity: 0 });
+		imgIn.to($lightbox, 0.1, { opacity: 1, ease: Power2.easeIn }); 
+		imgIn.to(img, 0.5, { opacity: 1, ease: Power2.easeIn });
+	});
+	$lightbox.on('click', function() {
+		$lightbox.css('display', 'none');
+	});
+
 });
