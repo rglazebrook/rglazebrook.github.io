@@ -32,7 +32,9 @@ $(document).ready(function() {
 		imgIn.to(img, 0.5, { opacity: 1, ease: Power2.easeIn });
 	});
 	$lightbox.on('click', function() {
-		$lightbox.css('display', 'none');
+		var imgOut = new TimelineMax();
+		imgOut.to($lightbox, 0.5, { opacity: 0, ease: Power2.easeIn });
+		imgOut.set($lightbox, {display: 'none'});
 	});
 
 });
