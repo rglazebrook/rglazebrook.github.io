@@ -100,13 +100,10 @@ img {
 	margin-left: auto;
 	margin-right: auto;
 }
-
-.text-left {
+@include for-each-size('.text-left') {
 	text-align: left;
-}
-.text-center {
+}@include for-each-size('.text-center') {
 	text-align: center;
-}
-.text-right {
+}@include for-each-size('.text-right') {
 	text-align: right;
 }
