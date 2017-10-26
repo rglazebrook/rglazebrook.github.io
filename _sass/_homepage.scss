@@ -40,7 +40,10 @@
 		opacity: 0; // This gets removed by JS.
 	}
 
-	.portfolio {		
+	.portfolio {	
+		img {
+			width: 100%;
+		}	
 		.row {
 			padding-top: $gutter;
 		}
