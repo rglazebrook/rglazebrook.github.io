@@ -4,15 +4,33 @@
   imageWidth: 800
   imageHeight: 547
   description: I was responsible for all front end development on this custom WordPress theme for Food Network's Ree Drummond.
+- title: CDC "Fight Flu" Campaign Ad
+  url: http://voce-public.s3.amazonaws.com/html5-ads/CDC-PNPS/flu-arm/300x600/index.html
+  image: portfolio-flu-ad.jpg
+  width: 302
+  height: 227
+  description: I developed this ad as part of a campaign by the CDC to encourage flu vaccinations.
 - title: Rockettes
   url: https://www.rockettes.com
   image: portfolio-rockettes.jpg
   imageWidth: 800
   imageHeight: 587
-  description: I developed the responsive front end for this popular web property of Madison Square Garden.
+  description: I developed the responsive front end for this iconic web property of Madison Square Garden.
 - title: CDC "Watch Me!" Module
   url: https://www.cdc.gov/ncbddd/watchmetraining/module1.html
   image: portfolio-watchme.jpg
   imageWidth: 800
   imageHeight: 482
   description: I handled all the front end development for this animated, interactive learning module for the CDC.
+- title: Williams Energy
+  url: http://co.williams.com/
+  image: portfolio-williams.jpg
+  imageWidth: 800
+  imageHeight: 544
+  description: I built out the front end of this WordPress.com VIP website for Williams Companies.
+- title: One Ship
+  url: https://rglazebrook.github.io/games/oneship/
+  image: portfolio-oneship.jpg
+  imageWidth: 640
+  imageHeight: 480
+  description: I developed this small game in the HTML5 Canvas in my free time, as a way to learn more about animating with the Canvas element.

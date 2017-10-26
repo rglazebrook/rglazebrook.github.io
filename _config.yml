@@ -2,4 +2,4 @@ name: Rob Glazebrook
 markdown: kramdown
 
 sass:
-    style: compressed
+    style: expanded

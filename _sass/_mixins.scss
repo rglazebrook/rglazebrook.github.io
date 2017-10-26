@@ -15,3 +15,32 @@
 @mixin for-big-desktop-up {
   @media (min-width: 1800px) { @content; }
 }
+
+// A way to generate rules across breakpoint sizes. It creates a lot of CSS, but it allows us to have classes for each use case.
+// I'm also using a hacky way to ensure our mixins are more specific than the original.
+@mixin for-each-size( $class ) {
+	#{$class} {
+		@content;
+	}
+	@include for-tablet-portrait-up {
+		body #{$class}-tabletp {
+			@content;
+		}
+	}
+	@include for-tablet-landscape-up {
+		body #{$class}-tabletl {
+			@content;
+		}
+	}
+	@include for-desktop-up {
+		body #{$class}-desktop {
+			@content;
+		}
+	}
+	@include for-big-desktop-up {
+		body #{$class}-big {
+			@content;
+		}
+	}
+}
+

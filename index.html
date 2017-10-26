@@ -16,10 +16,10 @@ bodyclasses: homepage
 <section class="about-me">
 	<div class="fullpage container flex">
 		<div class="row row-center">
-			<div class="col-12 col-tabletp-4 text-center">
+			<div class="col-12 col-4-tabletp text-center text-right-tabletp">
 				<h2><i class="fa fa-puzzle-piece" aria-hidden="true"></i> About Me</h2>
 			</div>
-			<div class="col-12 col-tabletp-8">
+			<div class="col-12 col-8-tabletp">
 				<p>I’m a Front End Developer, which I generally consider to be one of the best careers in the world. I spend my days solving puzzles. I’m given beautiful designs from talented designers, and it’s my job to figure out how to translate them into the HTML, CSS, and JavaScript that will allow them to live and breathe on the web.</p>
 				<p>Puzzles are sort of my thing. When I was a kid, I would take apart my toys to figure out how they worked (less often, I would figure out how to put them back together again). I built my own computers, then I wrote text-based adventures in BASIC to play on them. In 1995 I discovered the magic of HTML, and that’s been an ongoing love affair ever since.</p>
 			</div>
@@ -36,7 +36,7 @@ bodyclasses: homepage
 	{% for example in site.data.portfolio %}
 		<div class="row row-center">
 			<div class="col-4">
-				<img data-src="{{ site.url }}/img/{{ example.image }}" width="{{ example.imageWidth }}" height="{{ example.imageHeight }}" alt="">
+				<img data-src="{{ site.url }}/img/{{ example.image }}" width="{{ example.imageWidth }}" height="{{ example.imageHeight }}" alt="{{example.title}}">
 			</div>
 			<div class="col-8">
 				<h3 class="portfolio-title">{{example.title}}</h3>
@@ -51,10 +51,10 @@ bodyclasses: homepage
 <section class="reach-out">
 	<div class="fullpage container flex">
 		<div class="row row-center">
-			<div class="col-12 col-tabletp-4 text-center">
+			<div class="col-12 col-4-tabletp text-center text-right-tabletp">
 				<h2><i class="fa fa-comments"></i> Reach Out</h2>
 			</div>
-			<div class="col-12 col-tabletp-8">
+			<div class="col-12 col-8-tabletp">
 				<p>Have something interesting you’d like to talk about? Awesome! Get in touch.</p>
 				<p>
 					<strong>Email:</strong> <a href="mailto:rglazebrook@gmail.com">rglazebrook@gmail.com</a><br>

@@ -12,37 +12,8 @@
 	padding: 0 $gutter/2;
 }
 
-// Multiple 'for' loops seem necessary; otherwise, it was reorganizing the order in the CSS and wreaking havoc.
 @for $i from 1 through $cols {
-	.col-#{$i} {
+	@include for-each-size( '.col-' + $i ) {
 		flex: $i 1 $i/$cols * 100%;
 	}
-}
-@for $i from 1 through $cols {
-	@include for-tablet-portrait-up {
-		.col-tabletp-#{$i} {
-			flex: $i 1 $i/$cols * 100%;
-		}
-	}
-}
-@for $i from 1 through $cols {
-	@include for-tablet-landscape-up {
-		.col-tabletl-#{$i} {
-			flex: $i 1 $i/$cols * 100%;
-		}
-	}
-}
-@for $i from 1 through $cols {
-	@include for-desktop-up {
-		.col-desktop-#{$i} {
-			flex: $i 1 $i/$cols * 100%;
-		}
-	}
-}
-@for $i from 1 through $cols {
-	@include for-big-desktop-up {
-		.col-big-#{$i} {
-			flex: $i 1 $i/$cols * 100%;
-		}
-	}		
 }
