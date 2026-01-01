@@ -1,0 +1,130 @@
+:root {
+  --base03:    #002b36;
+  --base02:    #073642;
+  --base01:    #586e75;
+  --base00:    #657b83;
+  --base0:     #839496;
+  --base1:     #93a1a1;
+  --base2:     #eee8d5;
+  --base3:     #fdf6e3;
+  --yellow:    #b58900;
+  --orange:    #cb4b16;
+  --red:       #dc322f;
+  --magenta:   #d33682;
+  --violet:    #6c71c4;
+  --blue:      #268bd2;
+  --cyan:      #2aa198;
+  --green:     #859900;
+}
+body {
+  font-family: "Tilt Neon", monospace;  
+  margin: 0;
+  padding: 1rem;
+  background-color: var(--base03);
+  color: var(--base3);
+}
+h1 {
+  margin: 0 0 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+h4 {
+  margin: 0;
+  font-weight: normal;
+}
+summary {
+  padding: 0.5rem 0;
+  font-size: 1.125rem;
+  cursor: pointer;
+  &::marker {
+    font-size: 0;
+  }
+  span {
+    padding: 0 0.25rem;
+  }
+}
+ul {
+  list-style: square;
+  padding-left: 1.5rem;
+  color: var(--base2);
+}
+.user {
+  float: right;
+}
+.error {
+  border: 1px solid var(--red);
+  padding: 0.5rem;
+  color: var(--red);
+}
+.rig {
+  padding: 0 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: var(--base02);
+}
+.rig--summary {
+  color: var(--green);
+}
+.board--summary {
+  color: var(--magenta);
+}
+.boards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.board {
+  flex-grow: 1;
+  margin-bottom: 0.25rem;
+  &:nth-child(6n) {
+    .board--summary {
+      color: var(--yellow);
+    }
+  }
+  &:nth-child(7n+1) {
+    .board--summary {
+      color: var(--blue);
+    }
+  }
+  &:nth-child(7n+2) {
+    .board--summary {
+      color: var(--magenta);
+    }
+  }
+  &:nth-child(7n+3) {
+    .board--summary {
+      color: var(--orange);
+    }
+  }
+  &:nth-child(7n+4) {
+    .board--summary {
+      color: var(--yellow);
+    }
+  }
+  &:nth-child(7n+5) {
+    .board--summary {
+      color: var(--red);
+    }
+  }
+  &:nth-child(7n+6) {
+    .board--summary {
+      color: var(--violet);
+    }
+  }
+}
+.board--threads {
+  display: grid;
+  width: 100%;
+  gap: 0.5rem;
+  grid-template-areas: "a b";
+  grid-auto-columns: 0.5fr;
+}
+.thread {
+  flex-grow: 1;
+  border: 1px solid var(--base03);
+  h4 {
+    padding: 0.5rem;
+    background-color: var(--base03);
+  }
+}
