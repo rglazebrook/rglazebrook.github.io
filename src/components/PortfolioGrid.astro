@@ -1,0 +1,14 @@
+---
+import type { WorkItem } from '../data/work';
+import WorkCard from './WorkCard.astro';
+
+interface Props {
+  items: WorkItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(min(100%,20rem),1fr))]">
+  {items.map((item) => <WorkCard item={item} />)}
+</div>

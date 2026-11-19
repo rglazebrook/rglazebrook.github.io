@@ -1,8 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 import Base from "../layouts/Base.astro";
-import WorkCard from "../components/WorkCard.astro";
 import { earlierWork, playground } from "../data/work";
+import HomeSection from "../components/HomeSection.astro";
+import PortfolioGrid from "../components/PortfolioGrid.astro";
 
 const posts = (await getCollection("writing", ({ data }) => import.meta.env.DEV || !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
@@ -13,20 +14,19 @@ const posts = (await getCollection("writing", ({ data }) => import.meta.env.DEV 
   <section class="hero container pt-16 pb-12">
     <h1 class="text-2xl max-w-[18ch] mb-6">I'm Rob. I build the components other engineers build with.</h1>
     <p class="lede text-lg text-muted max-w-measure m-0">
-      Hi there! I’m Rob Glazebrook, a front-end engineer. For the last 8½ years I helped build and
-      maintain an internal design system component library: accessible, themeable, and
+      Hi there! I'm Rob Glazebrook, a front-end engineer. For the last 8.5 years I've built
+      and maintained an internal design system component library: accessible, themeable, and
       used by product teams across the company.
     </p>
   </section>
 
-  <section class="container section mt-16" aria-labelledby="about">
-    <h2 id="about" class="text-xl mb-6">About</h2>
+  <HomeSection id="about" title="A Bit About Me">
     <div class="prose">
       <p>
         Puzzles are sort of my thing. When I was a kid, I took my toys apart to figure out how
         they worked (and less often, figured out how to put them back together). I built my
         own computers, then wrote text adventures in BASIC to play on them. In 1995 I
-        discovered HTML, and I’ve loved it ever since.
+        discovered HTML, and I've loved it ever since.
       </p>
       <p>
         <!-- TODO: a paragraph on the design-system years: scale, what you owned, what you're proud of. -->
@@ -34,10 +34,9 @@ const posts = (await getCollection("writing", ({ data }) => import.meta.env.DEV 
         for dozens of teams, strict enough to stay consistent, and accessible by default.
       </p>
     </div>
-  </section>
+  </HomeSection>
 
-  <section class="container section mt-16" aria-labelledby="writing-heading">
-    <h2 id="writing-heading" class="text-xl mb-6">Writing &amp; deep dives</h2>
+  <HomeSection id="writing-heading" title="Writing & deep dives">
     {posts.length === 0 ? (
       <p>Coming soon.</p>
     ) : (
@@ -53,29 +52,22 @@ const posts = (await getCollection("writing", ({ data }) => import.meta.env.DEV 
         ))}
       </ul>
     )}
-  </section>
+  </HomeSection>
 
-  <section id="work" class="container mt-16" aria-labelledby="play-heading">
-    <h2 id="play-heading" class="text-xl mb-6">Playground</h2>
-    <div class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(min(100%,20rem),1fr))]">
-      {playground.map((item) => <WorkCard item={item} />)}
-    </div>
-  </section>
+  <HomeSection id="playground" title="Playground">
+    <PortfolioGrid items={playground} />
+  </HomeSection>
 
-  <section class="container section mt-16" aria-labelledby="earlier-heading">
-    <h2 id="earlier-heading" class="text-xl mb-6">Earlier client work</h2>
-    <div class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(min(100%,20rem),1fr))]">
-      {earlierWork.map((item) => <WorkCard item={item} />)}
-    </div>
-  </section>
+  <HomeSection id="earlier-work" title="Earlier Client Work">
+    <PortfolioGrid items={earlierWork} />
+  </HomeSection>
 
-  <section id="contact" class="container section mt-16" aria-labelledby="contact-heading">
-    <h2 id="contact-heading" class="text-xl mb-6">Get in touch</h2>
-    <p>Have something interesting you’d like to talk about? I’d love to hear it.</p>
+  <HomeSection id="contact" title="Get in touch">
+    <p>Have something interesting you'd like to talk about? I'd love to hear it.</p>
     <ul class="contact flex flex-wrap gap-6">
       <li><a href="mailto:rglazebrook@gmail.com">rglazebrook@gmail.com</a></li>
       <li><a href="https://www.linkedin.com/in/robglazebrook">LinkedIn</a></li>
       <li><a href="https://github.com/rglazebrook">GitHub</a></li>
     </ul>
-  </section>
+  </HomeSection>
 </Base>
