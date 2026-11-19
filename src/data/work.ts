@@ -46,7 +46,7 @@ export const earlierWork: WorkItem[] = [
 export const playground: WorkItem[] = [
   {
     title: "One Ship",
-    description: "A small HTML5 Canvas game built to learn canvas animation. Due for a modern rebuild.",
+    description: "A small HTML5 Canvas game built in 2014 to learn canvas animation.",
     image: oneship,
     url: "https://rglazebrook.github.io/games/oneship/",
   },

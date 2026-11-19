@@ -10,17 +10,17 @@ const posts = (await getCollection("writing", ({ data }) => import.meta.env.DEV 
 ---
 
 <Base>
-  <section class="hero container">
-    <h1>I build the components other engineers build with.</h1>
-    <p class="lede">
-      I’m Rob Glazebrook, a front-end engineer. For the last 8½ years I helped build and
+  <section class="hero container pt-16 pb-12">
+    <h1 class="text-2xl max-w-[18ch] mb-6">I'm Rob. I build the components other engineers build with.</h1>
+    <p class="lede text-lg text-muted max-w-measure m-0">
+      Hi there! I’m Rob Glazebrook, a front-end engineer. For the last 8½ years I helped build and
       maintain an internal design system component library: accessible, themeable, and
       used by product teams across the company.
     </p>
   </section>
 
-  <section class="container section" aria-labelledby="about">
-    <h2 id="about">About</h2>
+  <section class="container section mt-16" aria-labelledby="about">
+    <h2 id="about" class="text-xl mb-6">About</h2>
     <div class="prose">
       <p>
         Puzzles are sort of my thing. When I was a kid, I took my toys apart to figure out how
@@ -36,69 +36,46 @@ const posts = (await getCollection("writing", ({ data }) => import.meta.env.DEV 
     </div>
   </section>
 
-  <section class="container section" aria-labelledby="writing-heading">
-    <h2 id="writing-heading">Writing &amp; deep dives</h2>
+  <section class="container section mt-16" aria-labelledby="writing-heading">
+    <h2 id="writing-heading" class="text-xl mb-6">Writing &amp; deep dives</h2>
     {posts.length === 0 ? (
       <p>Coming soon.</p>
     ) : (
-      <ul class="post-list">
+      <ul class="post-list grid gap-6">
         {posts.map((post) => (
           <li>
-            <a href={`/writing/${post.id}/`}>{post.data.title}</a>
-            {post.data.draft && <span class="badge">draft</span>}
-            <p>{post.data.description}</p>
+            <a href={`/writing/${post.id}/`} class="text-lg font-semibold">
+              {post.data.title}
+            </a>
+            {post.data.draft && <span class="badge ms-2 text-sm px-2 border border-border-strong rounded-sm text-muted">draft</span>}
+            <p class="mt-1 text-muted">{post.data.description}</p>
           </li>
         ))}
       </ul>
     )}
   </section>
 
-  <section id="work" class="container section" aria-labelledby="play-heading">
-    <h2 id="play-heading">Playground</h2>
-    <div class="grid">
+  <section id="work" class="container mt-16" aria-labelledby="play-heading">
+    <h2 id="play-heading" class="text-xl mb-6">Playground</h2>
+    <div class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(min(100%,20rem),1fr))]">
       {playground.map((item) => <WorkCard item={item} />)}
     </div>
   </section>
 
-  <section class="container section" aria-labelledby="earlier-heading">
-    <h2 id="earlier-heading">Earlier client work</h2>
-    <div class="grid">
+  <section class="container section mt-16" aria-labelledby="earlier-heading">
+    <h2 id="earlier-heading" class="text-xl mb-6">Earlier client work</h2>
+    <div class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(min(100%,20rem),1fr))]">
       {earlierWork.map((item) => <WorkCard item={item} />)}
     </div>
   </section>
 
-  <section id="contact" class="container section" aria-labelledby="contact-heading">
-    <h2 id="contact-heading">Get in touch</h2>
+  <section id="contact" class="container section mt-16" aria-labelledby="contact-heading">
+    <h2 id="contact-heading" class="text-xl mb-6">Get in touch</h2>
     <p>Have something interesting you’d like to talk about? I’d love to hear it.</p>
-    <ul class="contact">
+    <ul class="contact flex flex-wrap gap-6">
       <li><a href="mailto:rglazebrook@gmail.com">rglazebrook@gmail.com</a></li>
       <li><a href="https://www.linkedin.com/in/robglazebrook">LinkedIn</a></li>
       <li><a href="https://github.com/rglazebrook">GitHub</a></li>
     </ul>
   </section>
 </Base>
-
-<style>
-  .hero { padding-block: var(--space-16) var(--space-12); }
-  .hero h1 { font-size: var(--text-2xl); max-width: 18ch; margin: 0 0 var(--space-6); }
-  .lede { font-size: var(--text-lg); color: var(--color-text-muted); max-width: var(--measure); margin: 0; }
-  .section { margin-top: var(--space-16); }
-  .section h2 { font-size: var(--text-xl); margin: 0 0 var(--space-6); }
-  .grid {
-    display: grid;
-    gap: var(--space-6);
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
-  }
-  .post-list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-6); }
-  .post-list a { font-size: var(--text-lg); font-weight: 600; }
-  .post-list p { margin: var(--space-1) 0 0; color: var(--color-text-muted); }
-  .badge {
-    margin-left: var(--space-2);
-    font-size: var(--text-sm);
-    padding: 0 var(--space-2);
-    border: 1px solid var(--color-border-strong);
-    border-radius: var(--radius-sm);
-    color: var(--color-text-muted);
-  }
-  .contact { display: flex; flex-wrap: wrap; gap: var(--space-6); list-style: none; padding: 0; }
-</style>

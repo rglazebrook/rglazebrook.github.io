@@ -9,23 +9,17 @@ const fmt = new Intl.DateTimeFormat("en-US", { dateStyle: "long", timeZone: "UTC
 
 <Base title="Writing" description="Deep dives on design systems, accessible components, and front-end craft.">
   <div class="container">
-    <h1>Writing</h1>
-    <ul>
+    <h1 class="py-6 text-2xl font-semibold">Writing</h1>
+    <ul class="grid gap-8">
       {posts.map((post) => (
         <li>
-          <a href={`/writing/${post.id}/`}>{post.data.title}</a>
-          <time datetime={post.data.date.toISOString()}>{fmt.format(post.data.date)}</time>
-          {post.data.draft && <span> · draft</span>}
-          <p>{post.data.description}</p>
+          <a href={`/writing/${post.id}/`} class="text-lg font-bold block">{post.data.title}</a>
+          <time class="text-sm text-muted" datetime={post.data.date.toISOString()}>{fmt.format(post.data.date)}</time>
+          {post.data.draft && <span class="text-sm text-muted"> · draft</span>}
+          <p class="mt-1 text-muted max-w-measure">{post.data.description}</p>
         </li>
       ))}
     </ul>
   </div>
 </Base>
 
-<style>
-  ul { list-style: none; padding: 0; display: grid; gap: var(--space-8); }
-  a { font-size: var(--text-lg); font-weight: 600; display: block; }
-  time, span { font-size: var(--text-sm); color: var(--color-text-muted); }
-  p { margin: var(--space-1) 0 0; color: var(--color-text-muted); max-width: var(--measure); }
-</style>
