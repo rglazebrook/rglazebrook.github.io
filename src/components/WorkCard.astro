@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets";
+import type { WorkItem } from "../data/work";
+
+interface Props { item: WorkItem }
+const { item } = Astro.props;
+---
+
+<article class="card">
+  <Image src={item.image} alt="" widths={[400, 800]} sizes="(min-width: 48rem) 22rem, 100vw" />
+  <div class="card__body">
+    <h3>
+      {item.url ? <a href={item.url}>{item.title}</a> : item.title}
+    </h3>
+    <p>{item.description}</p>
+  </div>
+</article>
+
+<style>
+  .card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  .card :global(img) {
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top;
+    width: 100%;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .card__body { padding: var(--space-4) var(--space-6) var(--space-6); }
+  h3 { margin: 0 0 var(--space-2); font-size: var(--text-lg); }
+  p { margin: 0; color: var(--color-text-muted); }
+</style>

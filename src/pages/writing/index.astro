@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+
+const posts = (await getCollection("writing", ({ data }) => import.meta.env.DEV || !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const fmt = new Intl.DateTimeFormat("en-US", { dateStyle: "long", timeZone: "UTC" });
+---
+
+<Base title="Writing" description="Deep dives on design systems, accessible components, and front-end craft.">
+  <div class="container">
+    <h1>Writing</h1>
+    <ul>
+      {posts.map((post) => (
+        <li>
+          <a href={`/writing/${post.id}/`}>{post.data.title}</a>
+          <time datetime={post.data.date.toISOString()}>{fmt.format(post.data.date)}</time>
+          {post.data.draft && <span> · draft</span>}
+          <p>{post.data.description}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>
+
+<style>
+  ul { list-style: none; padding: 0; display: grid; gap: var(--space-8); }
+  a { font-size: var(--text-lg); font-weight: 600; display: block; }
+  time, span { font-size: var(--text-sm); color: var(--color-text-muted); }
+  p { margin: var(--space-1) 0 0; color: var(--color-text-muted); max-width: var(--measure); }
+</style>

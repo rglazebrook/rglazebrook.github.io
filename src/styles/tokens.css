@@ -1,0 +1,86 @@
+/*
+ * Design tokens. Primitive values first, then semantic aliases that
+ * components consume. Themes only remap the semantic layer.
+ */
+:root {
+  /* Primitives */
+  --gray-0: #ffffff;
+  --gray-50: #f7f7f5;
+  --gray-100: #ecebe7;
+  --gray-300: #c9c7c0;
+  --gray-500: #85837b;
+  --gray-700: #46443f;
+  --gray-850: #23221f;
+  --gray-900: #181816;
+  --gray-950: #111110;
+  --amber-400: #f2b544;
+  --amber-600: #b7791f;
+  --amber-700: #8f5d12;
+
+  /* Type */
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  --text-2xl: clamp(2.25rem, 1.6rem + 3vw, 3.75rem);
+  --leading-tight: 1.15;
+  --leading-body: 1.65;
+
+  /* Space (4px base) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --measure: 68ch;
+  --page-width: 72rem;
+
+  /* Semantic: light */
+  --color-bg: var(--gray-50);
+  --color-surface: var(--gray-0);
+  --color-text: var(--gray-900);
+  --color-text-muted: var(--gray-700);
+  --color-border: var(--gray-100);
+  --color-border-strong: var(--gray-300);
+  --color-accent: var(--amber-700);
+  --color-accent-text: var(--gray-0);
+  --color-focus: var(--amber-600);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: var(--gray-950);
+    --color-surface: var(--gray-900);
+    --color-text: var(--gray-50);
+    --color-text-muted: var(--gray-300);
+    --color-border: var(--gray-850);
+    --color-border-strong: var(--gray-700);
+    --color-accent: var(--amber-400);
+    --color-accent-text: var(--gray-950);
+    --color-focus: var(--amber-400);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-bg: var(--gray-950);
+  --color-surface: var(--gray-900);
+  --color-text: var(--gray-50);
+  --color-text-muted: var(--gray-300);
+  --color-border: var(--gray-850);
+  --color-border-strong: var(--gray-700);
+  --color-accent: var(--amber-400);
+  --color-accent-text: var(--gray-950);
+  --color-focus: var(--amber-400);
+  color-scheme: dark;
+}

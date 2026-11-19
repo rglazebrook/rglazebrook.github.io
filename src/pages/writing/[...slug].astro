@@ -1,0 +1,34 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("writing", ({ data }) => import.meta.env.DEV || !data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const fmt = new Intl.DateTimeFormat("en-US", { dateStyle: "long", timeZone: "UTC" });
+---
+
+<Base title={post.data.title} description={post.data.description}>
+  <article class="container">
+    <header>
+      <h1>{post.data.title}</h1>
+      <p class="meta">
+        <time datetime={post.data.date.toISOString()}>{fmt.format(post.data.date)}</time>
+        {post.data.draft && " · draft"}
+      </p>
+    </header>
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</Base>
+
+<style>
+  header { margin-block: var(--space-12) var(--space-8); }
+  h1 { font-size: var(--text-2xl); margin: 0; max-width: 22ch; }
+  .meta { color: var(--color-text-muted); margin: var(--space-2) 0 0; }
+</style>
