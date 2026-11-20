@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import ThemeToggle from "../components/ThemeToggle.astro";
 
 interface Props {
   title?: string;
@@ -33,26 +34,36 @@ const links = [
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <script is:inline>
+      // Apply a saved theme before first paint to avoid a flash.
+      try {
+        const t = localStorage.getItem("theme");
+        if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+      } catch {}
+    </script>
   </head>
   <body>
     <a class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-10 focus:px-4 focus:py-2 bg-accent text-on-accent" href="#main">Skip to content</a>
     <header class="container flex flex-wrap items-center justify-between gap-4 py-3">
       <a class="text-text font-bold no-underline" href="/">Rob Glazebrook</a>
-      <nav aria-label="Main">
-        <ul class="flex gap-6">
-          {links.map((link) => (
-            <li>
-              <a
-                class="text-muted no-underline hover:text-text aria-[current=page]:text-text"
-                href={link.href}
-                aria-current={link.current ? "page" : undefined}
-              >
-                {link.text}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <div class="flex items-center gap-4">
+        <nav aria-label="Main">
+          <ul class="flex gap-6">
+            {links.map((link) => (
+              <li>
+                <a
+                  class="text-muted no-underline hover:text-text aria-[current=page]:text-text"
+                  href={link.href}
+                  aria-current={link.current ? "page" : undefined}
+                >
+                  {link.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <ThemeToggle />
+      </div>
     </header>
 
     <main id="main">

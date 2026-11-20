@@ -1,0 +1,53 @@
+---
+/*
+ * Light/dark toggle. tokens.css already remaps colours for
+ * <html data-theme="light|dark">; this sets that attribute and remembers it.
+ * The no-flash initialiser lives inline in Base.astro's <head>.
+ */
+---
+
+<button
+  type="button"
+  class="theme-toggle inline-flex size-9 items-center justify-center rounded-md text-muted hover:text-text hover:bg-surface cursor-pointer"
+  aria-label="Dark theme"
+  aria-pressed="false"
+>
+  <!-- Sun: shown in light theme -->
+  <svg class="dark:hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+  </svg>
+  <!-- Moon: shown in dark theme -->
+  <svg class="hidden dark:block" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+  </svg>
+</button>
+
+<script>
+  const root = document.documentElement;
+  const media = window.matchMedia("(prefers-color-scheme: dark)");
+  const buttons = document.querySelectorAll<HTMLButtonElement>(".theme-toggle");
+
+  const isDark = () =>
+    root.dataset.theme ? root.dataset.theme === "dark" : media.matches;
+
+  const sync = () => {
+    const dark = isDark();
+    buttons.forEach((b) => b.setAttribute("aria-pressed", String(dark)));
+  };
+
+  buttons.forEach((button) =>
+    button.addEventListener("click", () => {
+      const next = isDark() ? "light" : "dark";
+      root.dataset.theme = next;
+      try {
+        localStorage.setItem("theme", next);
+      } catch {}
+      sync();
+    }),
+  );
+
+  // Follow OS changes until the visitor picks a theme explicitly.
+  media.addEventListener("change", sync);
+  sync();
+</script>

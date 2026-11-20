@@ -63,9 +63,9 @@
       --color-muted: var(--color-gray-300);
       --color-border: var(--color-gray-850);
       --color-border-strong: var(--color-gray-700);
-      --color-accent: var(--color-amber-400);
+      --color-accent: var(--color-indigo-400);
       --color-on-accent: var(--color-gray-950);
-      --color-focus: var(--color-amber-400);
+      --color-focus: var(--color-indigo-400);
       color-scheme: dark;
     }
   }
@@ -77,9 +77,9 @@
     --color-muted: var(--color-gray-300);
     --color-border: var(--color-gray-850);
     --color-border-strong: var(--color-gray-700);
-    --color-accent: var(--color-amber-400);
+    --color-accent: var(--color-indigo-400);
     --color-on-accent: var(--color-gray-950);
-    --color-focus: var(--color-amber-400);
+    --color-focus: var(--color-indigo-400);
     color-scheme: dark;
   }
 }
