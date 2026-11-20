@@ -48,13 +48,13 @@ export const earlierWork: WorkItem[] = [
 export const playground: WorkItem[] = [
   {
     title: "One Ship",
-    description: "A small HTML5 Canvas game built in 2014 to learn canvas animation.",
+    description: "A small HTML5 Canvas game I built way back in 2014 to learn canvas animation.",
     image: oneship,
     url: "https://rglazebrook.github.io/games/oneship/",
   },
   {
     title: "NES-C64",
-    description: "I taught myself KiCad by designing a PCB that allows you to use an NES controller on the Commodore 64.",
+    description: "I taught myself KiCad by designing a PCB that converts an NES controller to a Commodore 64 controller.",
     image: nesc64,
     url: "https://github.com/rglazebrook/NES-C64",
   },

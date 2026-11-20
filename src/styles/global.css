@@ -20,7 +20,7 @@
 
   code, pre { @apply font-mono text-[0.9em]; }
   :not(pre) > code {
-    @apply bg-surface border border-border px-[0.35em] py-[0.1em] rounded-sm;
+    @apply bg-surface border border-gray-100 px-[0.35em] py-[0.1em] rounded-sm;
   }
   pre { @apply p-4 rounded-md overflow-x-auto; }
 
