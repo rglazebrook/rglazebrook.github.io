@@ -4,7 +4,7 @@
     {
       "name": "dev",
       "runtimeExecutable": "fnm",
-      "runtimeArgs": ["exec", "--", "npm", "run", "dev"],
+      "runtimeArgs": ["exec", "--", "npm.cmd", "run", "dev"],
       "port": 4321
     }
   ]
