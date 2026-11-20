@@ -8,9 +8,9 @@ interface Props {
 
 const {
   title,
-  description = "Rob Glazebrook is a front-end engineer specializing in design systems, accessible UI components, and the occasional game.",
+  description = "Rob Glazebrook is a frontend engineer specializing in design systems, accessible UI components, and the occasional game.",
 } = Astro.props;
-const fullTitle = title ? `${title} · Rob Glazebrook` : "Rob Glazebrook · Front-end engineer";
+const fullTitle = title ? `${title} · Rob Glazebrook` : "Rob Glazebrook · Frontend engineer";
 const path = Astro.url.pathname;
 const links = [
   { text: "Work", href: "/#work" },
@@ -34,8 +34,8 @@ const links = [
   </head>
   <body>
     <a class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-10 focus:px-4 focus:py-2 bg-accent text-on-accent" href="#main">Skip to content</a>
-    <header class="site-header container flex flex-wrap items-center justify-between gap-4 py-3">
-      <a class="logo text-text font-bold no-underline" href="/">Rob Glazebrook</a>
+    <header class="container flex flex-wrap items-center justify-between gap-4 py-3">
+      <a class="text-text font-bold no-underline" href="/">Rob Glazebrook</a>
       <nav aria-label="Main">
         <ul class="flex gap-6">
           {links.map((link) => (
@@ -57,7 +57,7 @@ const links = [
       <slot />
     </main>
 
-    <footer class="site-footer container mt-24 py-8 border-t text-muted text-sm border-gray-100">
+    <footer class="container mt-24 py-8 border-t text-muted text-sm border-gray-100">
       <p>© {new Date().getFullYear()} Rob Glazebrook. Built with Astro + MDX.</p>
     </footer>
   </body>

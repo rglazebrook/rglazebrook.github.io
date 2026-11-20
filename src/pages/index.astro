@@ -6,7 +6,7 @@ import HomeSection from "../components/HomeSection.astro";
 import PortfolioGrid from "../components/PortfolioGrid.astro";
 import { Image } from "astro:assets";
 
-import rob from "../assets/rob-beer-headshot-2.jpg";
+import rob from "../assets/rob-headshot-may2026.jpg";
 
 const posts = (await getCollection("writing", ({ data }) => import.meta.env.DEV || !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
@@ -21,8 +21,8 @@ const posts = (await getCollection("writing", ({ data }) => import.meta.env.DEV 
     </div>
     <p class="lede text-lg text-muted max-w-measure m-0">
       Hi there! I'm Rob Glazebrook, a frontend engineer. For the last 8.5 years I've built
-      and maintained an internal design system component library; it's accessible, themeable, and
-      used by product teams across the company.
+      and maintained an internal design system component library for Corteva Agriscience; 
+      it's accessible, themeable, and used by product teams across the company.
     </p>
   </section>
 
