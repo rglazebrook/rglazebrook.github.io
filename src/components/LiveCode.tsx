@@ -15,17 +15,17 @@ export default function LiveCode({ code, scope = {}, noInline = false, title = "
   const id = useId();
   return (
     <LiveProvider code={code.trim()} scope={scope} noInline={noInline}>
-      <figure className="live-code my-8 border border-border-strong rounded-md bg-surface overflow-hidden" aria-labelledby={id}>
-        <figcaption id={id} className="py-2 px-4 text-sm text-muted border-b border-border">
+      <figure className="live-code my-8 border border-gray-100 rounded-md bg-surface overflow-hidden" aria-labelledby={id}>
+        <figcaption id={id} className="py-2 px-4 text-sm text-muted border-b border-gray-100">
           {title}
         </figcaption>
         <div className="preview py-6 px-4">
           <LivePreview />
         </div>
-        <div className="border-t border-border font-mono text-sm">
+        <div className="border-t border-gray-100 font-mono text-sm">
           <LiveEditor aria-label={`${title}: editable code`} className="[&_pre]:m-0 [&_pre]:rounded-none" />
         </div>
-        <LiveError className="m-0 py-3 px-4 rounded-none text-sm text-on-danger bg-danger-surface whitespace-pre-wrap" />
+        <LiveError className="m-0 py-3 px-4 rounded-none text-sm bg-danger-surface text-on-danger whitespace-pre-wrap" />
       </figure>
     </LiveProvider>
   );

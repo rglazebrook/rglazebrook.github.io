@@ -12,37 +12,28 @@
  */
 @theme {
   /* Clear Tailwind's default palette. Only our tokens below generate colour utilities. */
-  --color-*: initial;
+  /* --color-*: initial; */
 
   /* Primitives: use semantic tokens in components; these are here for theming. */
-  --color-gray-0: #ffffff;
-  --color-gray-50: #f7f7f5;
-  --color-gray-100: #ecebe7;
-  --color-gray-300: #c9c7c0;
-  --color-gray-500: #85837b;
-  --color-gray-700: #46443f;
-  --color-gray-850: #23221f;
-  --color-gray-900: #181816;
-  --color-gray-950: #111110;
-  --color-amber-400: #f2b544;
-  --color-amber-600: #b7791f;
-  --color-amber-700: #8f5d12;
   --color-white: #ffffff;
   --color-transparent: transparent;
   --color-current: currentColor;
 
   /* Semantic colors (light defaults; dark values are remapped below). */
   --color-bg: var(--color-gray-50);
-  --color-surface: var(--color-gray-0);
+  --color-surface: var(--color-white);
   --color-text: var(--color-gray-900);
   --color-muted: var(--color-gray-700);
-  --color-border: var(--color-gray-100);
-  --color-border-strong: var(--color-gray-300);
-  --color-accent: var(--color-amber-700);
-  --color-on-accent: var(--color-gray-0);
-  --color-focus: var(--color-amber-600);
-  --color-danger-surface: #3b1111;
-  --color-on-danger: #ffd7d7;
+  /* --color-border: var(--color-gray-100);
+  --color-border-strong: var(--color-gray-300); */
+  
+  --color-focus: var(--color-indigo-700);
+
+  --color-accent: var(--color-indigo-500);
+  --color-on-accent: var(--color-white);
+  
+  --color-danger-surface: var(--color-red-700);
+  --color-on-danger: var(--color-red-100);
 
   /* Type */
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -56,8 +47,6 @@
   --leading-body: 1.65;
 
   /* Shape and layout */
-  --radius-sm: 4px;
-  --radius-md: 8px;
   --container-measure: 68ch; /* max-w-measure */
   --container-page: 72rem; /* max-w-page */
 }

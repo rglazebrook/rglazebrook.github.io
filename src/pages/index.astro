@@ -16,7 +16,7 @@ const posts = (await getCollection("writing", ({ data }) => import.meta.env.DEV 
 <Base>
   <section class="hero container mt-16">
     <div class="grid grid-cols-5 gap-2">
-      <Image src={rob} alt="That's me!" class="p-2 border border-border" />
+      <Image src={rob} alt="That's me!" class="p-2 border border-gray-200" />
       <h1 class="text-2xl max-w-[18ch] mb-6 col-span-4">I build the components other engineers build with.</h1>
     </div>
     <p class="lede text-lg text-muted max-w-measure m-0">
@@ -58,7 +58,7 @@ const posts = (await getCollection("writing", ({ data }) => import.meta.env.DEV 
             <a href={`/writing/${post.id}/`} class="text-lg font-semibold">
               {post.data.title}
             </a>
-            {post.data.draft && <span class="badge ms-2 text-sm px-2 border border-border-strong rounded-sm text-muted">draft</span>}
+            {post.data.draft && <span class="badge ms-2 text-sm px-2 border border-gray-300 rounded-sm text-muted">draft</span>}
             <p class="mt-1 text-muted">{post.data.description}</p>
           </li>
         ))}
