@@ -4,6 +4,9 @@ import Base from "../layouts/Base.astro";
 import { earlierWork, playground } from "../data/work";
 import HomeSection from "../components/HomeSection.astro";
 import PortfolioGrid from "../components/PortfolioGrid.astro";
+import { Image } from "astro:assets";
+
+import rob from "../assets/rob-beer-headshot-2.jpg";
 
 const posts = (await getCollection("writing", ({ data }) => import.meta.env.DEV || !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
@@ -11,11 +14,14 @@ const posts = (await getCollection("writing", ({ data }) => import.meta.env.DEV 
 ---
 
 <Base>
-  <section class="hero container pt-16 pb-12">
-    <h1 class="text-2xl max-w-[18ch] mb-6">I'm Rob. I build the components other engineers build with.</h1>
+  <section class="hero container mt-16">
+    <div class="grid grid-cols-5 gap-2">
+      <Image src={rob} alt="That's me!" class="p-2 border border-border" />
+      <h1 class="text-2xl max-w-[18ch] mb-6 col-span-4">I build the components other engineers build with.</h1>
+    </div>
     <p class="lede text-lg text-muted max-w-measure m-0">
-      Hi there! I'm Rob Glazebrook, a front-end engineer. For the last 8.5 years I've built
-      and maintained an internal design system component library: accessible, themeable, and
+      Hi there! I'm Rob Glazebrook, a frontend engineer. For the last 8.5 years I've built
+      and maintained an internal design system component library; it's accessible, themeable, and
       used by product teams across the company.
     </p>
   </section>
@@ -23,20 +29,26 @@ const posts = (await getCollection("writing", ({ data }) => import.meta.env.DEV 
   <HomeSection id="about" title="A Bit About Me">
     <div class="prose">
       <p>
-        Puzzles are sort of my thing. When I was a kid, I took my toys apart to figure out how
+        Solving puzzles is sort of my thing. When I was a kid, I took my toys apart to figure out how
         they worked (and less often, figured out how to put them back together). I built my
-        own computers, then wrote text adventures in BASIC to play on them. In 1995 I
-        discovered HTML, and I've loved it ever since.
+        own computers, then wrote text adventures in BASIC to play on them. I discovered HTML and the 
+        Internet in 1995, and I've loved it ever since.
       </p>
       <p>
-        <!-- TODO: a paragraph on the design-system years: scale, what you owned, what you're proud of. -->
-        These days the puzzle I like best is a component API: making something flexible enough
-        for dozens of teams, strict enough to stay consistent, and accessible by default.
+        I love design system component work because it's the intersection of design, engineering, and problem solving.
+        I get to work with designers to bring their ideas to life, and then work with engineers to ensure 
+        those ideas are implemented in a way that meets their product's needs &mdash; while simultaneously 
+        ensuring a consistent and accessible user experience within the component library.
+      </p>
+      <p>
+        When I'm not writing code, you can find me hiking, kayaking, building hardware projects, 
+        brewing, distillling, baking, cooking, restoring and using retro hardware, 
+        and spending time with my kids.
       </p>
     </div>
   </HomeSection>
 
-  <HomeSection id="writing-heading" title="Writing & deep dives">
+  <HomeSection id="writing-heading" title="Writing & Deep Dives">
     {posts.length === 0 ? (
       <p>Coming soon.</p>
     ) : (

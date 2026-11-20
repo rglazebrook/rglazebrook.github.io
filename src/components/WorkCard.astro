@@ -6,22 +6,16 @@ interface Props { item: WorkItem }
 const { item } = Astro.props;
 ---
 
-<!--
-  Converted to Tailwind as a reference for the other components.
-  Every colour, radius and size class here comes from src/styles/tokens.css:
-    bg-surface / border-border / text-muted  →  --color-surface / --color-border / --color-muted
-    rounded-md                               →  --radius-md
-    text-lg                                  →  --text-lg
-  Spacing (p-4, px-6, mb-2) uses Tailwind's 4px step: px-6 = 1.5rem.
--->
 <article class="overflow-hidden rounded-md border border-border bg-surface">
-  <Image
-    src={item.image}
-    alt=""
-    widths={[400, 800]}
-    sizes="(min-width: 48rem) 22rem, 100vw"
-    class="aspect-16/10 w-full border-b border-border object-cover object-top"
-  />
+  <a href={item.url}>
+    <Image
+      src={item.image}
+      alt=""
+      widths={[400, 800]}
+      sizes="(min-width: 48rem) 22rem, 100vw"
+      class="aspect-16/9 w-full border-b border-border object-cover object-top"
+    />
+  </a>
   <div class="px-6 pt-4 pb-6">
     <h3 class="mb-2 text-lg">
       {item.url ? <a href={item.url}>{item.title}</a> : item.title}

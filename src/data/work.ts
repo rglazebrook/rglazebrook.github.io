@@ -5,6 +5,8 @@ import watchme from "../assets/work/portfolio-watchme.jpg";
 import williams from "../assets/work/portfolio-williams.jpg";
 import fluAd from "../assets/work/portfolio-flu-ad.jpg";
 import oneship from "../assets/work/portfolio-oneship.jpg";
+import sushi from "../assets/work/million-sushi.png";
+import nesc64 from "../assets/work/nes-c64.png";
 
 export interface WorkItem {
   title: string;
@@ -50,4 +52,16 @@ export const playground: WorkItem[] = [
     image: oneship,
     url: "https://rglazebrook.github.io/games/oneship/",
   },
+  {
+    title: "NES-C64",
+    description: "I taught myself KiCad by designing a PCB that allows you to use an NES controller on the Commodore 64.",
+    image: nesc64,
+    url: "https://github.com/rglazebrook/NES-C64",
+  },
+  {
+    title: "Sushi Calculator",
+    description: "A calculator for the Roblox game Sell a Million Sushi. A vibecoding experiment.",
+    image: sushi,
+    url: "https://rglazebrook.github.io/sushi-calc/",
+  }
 ];

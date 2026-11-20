@@ -6,7 +6,7 @@ interface Props {
 const { id, title } = Astro.props;
 ---
 
-<section class="container mt-16" aria-labelledby={id}>
+<section class="container mt-12" aria-labelledby={id}>
   <h2 class="mb-6 text-xl" id={id}>{title}</h2>
   <slot />
 </section>
